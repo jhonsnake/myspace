@@ -1,5 +1,9 @@
+import NavMenu from '@/components/NavMenu'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Footer from '@/components/Footer'
+import AuthProvider from '@/components/AuthProvider'
+import AuthCheck from '@/components/AuthCheck'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +18,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <AuthProvider>
+
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavMenu/>
+        {children}
+        <Footer/>
+        </body>
     </html>
-  )
+
+  </AuthProvider>)
 }
